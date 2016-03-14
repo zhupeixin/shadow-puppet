@@ -1,1 +1,68 @@
-/* Empty. Add your own CSS if you like */
+/*返回按钮*/
+.back{width: 7.777%;height:4.54%;position: absolute;top: 5.02%;left: 3.9%;}
+/*保存按钮*/
+.save{width: 25.92%;height: 7.78%;position: absolute;bottom: 5.19%;left: 36.11%;}
+/*背景*/
+.bj{width: 100%;height: 104%;position: absolute;top: 0;left: 0;}
+/*上一页*/
+.lastpage{width: 26.38%;height: 7.46%;position: absolute;bottom: 4.7%;left: 21.94%;}
+/*下一页*/
+.nextpage{width: 26.38%;height: 7.46%;position: absolute;bottom: 4.7%;right: 21.94%;}
+
+/*开始页*/
+#state{width: 100%;height: 104%;position: absolute;top: 0;left: 0;}
+#gofirst{width: 34%;height: 9%;position: absolute;top: 78%;left: 33%;}
+/*首页*/
+#first{width:100%;height: 104%;position: absolute;top: 0;left: 0;}
+#gofront{width:70%;height: 25%;position:absolute;top: 22%;left: 15%;}
+#gobehind{width:70%;height: 25%;position:absolute;top: 60%;left: 15%;}
+/*台前首页*/
+#front{width: 100%;height: 104%;position: absolute;top: 0;left: 0;}
+#gomake{width: 67.8%;height: 27%;position: absolute;top:21.67%;left: 16%;}
+#gocollection{width: 67.8%;height: 27%;position: absolute;top:50.21%;left: 16%;}
+/*幕后首页*/
+#behind{width: 100%;height: 104%;position: absolute;top: 0;left: 0;}
+#gostyle{width: 67.8%;height: 24.54%;position: absolute;top: 19.35%;left: 16%;}
+#goshangxi{width: 67.8%;height: 24.54%;position: absolute;top: 45.13%;left: 16%;}
+#gobiaoyan{width: 67.8%;height: 24.54%;position: absolute;top: 69.89%;left: 16%;}
+/*制作皮影*/
+.make{width: 89.63%;height: 66.30%;position: absolute;top: 13.65%;left: 5.3%;border: 0.3em solid #861313;box-shadow:0 5px 10px #444;background: url("../img/collection/default.png");background-size: 100% 100%;}
+/*收藏页*/
+.collection_photo{width: 38.11%;height: 21.37%;border: 0.3em solid #861313;box-shadow:0 5px 10px #444;overflow: hidden;}
+.collection_1{position: absolute;top: 12.22%;left: 8.41%;}
+.collection_2{position: absolute;top: 12.22%;right:7.41%;}
+.collection_3{position: absolute;top: 36.92%;left: 8.41%;}
+.collection_4{position: absolute;top: 36.92%;right:7.41%;}
+.collection_5{position: absolute;top: 62.54%;left: 8.41%;}
+.collection_6{position: absolute;top: 62.54%;right:7.41%;}
+/*收藏页大图*/
+.collection_show{width: 89.63%;height: 66.30%;position: absolute;top: 13.65%;left: 5.3%;border: 0.3em solid #861313;box-shadow:0 5px 10px #444;background: url("../img/collection/1.png");background-size: 100% 100%;}
+/*赏析页面*/
+.shangxi{background: url("../img/shangxi/default.png");background-size: 100% 100%;}
+.shangxi_show{width: 89.63%;height: 66.30%;position: absolute;top: 13.65%;left: 5.3%;border: 0.3em solid #861313;box-shadow:0 5px 10px #444;background: url("../img/shangxi/default.png");background-size: 100% 100%;}
+.shangxi_text{width: 100%;height: auto;position:absolute;bottom: 14.37%;left: 0;text-align: center;color: #ECE6E1;font-weight: 900;letter-spacing: 0.2em;}
+/*风格流派*/
+.style_list{width: 87.22%;height: 8.84%;box-shadow:0 5px 10px #444;}
+#screen_2,#screen_3{display: none;}
+#list_1,#list_7,#list_13{position: absolute;top: 13.23%;left: 6.94%;}
+#list_2,#list_8{position: absolute;top: 26.04%;left: 6.94%;}
+#list_3,#list_9{position: absolute;top: 38.43%;left: 6.94%;}
+#list_4,#list_10{position: absolute;top: 50.83%;left: 6.94%;}
+#list_5,#list_11{position: absolute;top: 63.10%;left: 6.94%;}
+#list_6,#list_12{position: absolute;top: 75.60%;left: 6.94%;}
+/*风格流派图文部分*/
+.style_container{width: 100%;height: 100%;position: absolute;top: 0;left: 0;padding: 1% 10.27%;overflow-y: auto;overflow-x: hidden;}
+.style_back{width: 8.577%;height:4.54%;margin-top: 8.02%;margin-left: 0.1%;}
+.style_title{width: 100%;height: 8.84%;margin-top: 5%;margin-left: 0;}
+.style_text p{text-indent: 2em;color: #580000;}
+.style_text img{width: 100%;height: auto;margin: 2% 0;}
+/*表演片段*/
+.biaoyan_list{width: 87.22%;height: 8.84%;box-shadow:0 5px 10px #444;}
+.biaoyan_title{width: 88%;height: 8.84%;position:absolute;top: 12%;left: 6%;}
+.video{width: 88%;height: 30%;position: absolute;top: 28%;left: 6%;}
+
+
+
+
+
+
