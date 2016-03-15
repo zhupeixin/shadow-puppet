@@ -26,7 +26,21 @@
 #goshangxi{width: 67.8%;height: 24.54%;position: absolute;top: 45.13%;left: 16%;}
 #gobiaoyan{width: 67.8%;height: 24.54%;position: absolute;top: 69.89%;left: 16%;}
 /*制作皮影*/
-.make{width: 89.63%;height: 66.30%;position: absolute;top: 13.65%;left: 5.3%;border: 0.3em solid #861313;box-shadow:0 5px 10px #444;background: url("../img/collection/default.png");background-size: 100% 100%;}
+#make_photo{position: absolute;top: 13.65%;left: 5.3%;border: 0.3em solid #861313;box-shadow:0 5px 10px #444;}
+.left{width: 10.19%;height: 6.25%;z-index: 2;}
+#head{width: 10.19%;height: 6.25%;z-index: 2;position: absolute;left:11.05%;top: 23.02%}
+#body{width: 10.19%;height: 7.25%;z-index: 2;position: absolute;left:11.05%;top: 34.10%}
+#arm{width: 10.19%;height: 7.25%;z-index: 2;position: absolute;left:11.05%;top: 48.45%}
+#foot{width: 10.19%;height: 7.25%;z-index: 2;position: absolute;left:11.05%;top: 60.85%}
+#left_1{position: absolute;left:23.22%;top: 23.02%;}
+#left_2{position: absolute;left:23.22%;top: 35.10%;}
+#left_3{position: absolute;left:23.22%;top: 48.45%;}
+#left_4{position: absolute;left:23.22%;top: 60.85%;}
+.right{width: 10.19%;height: 6.25%;z-index: 2;}
+#right_1{position: absolute;right:19.88%;top: 23.02%; }
+#right_2{position: absolute;right:19.88%;top: 35.10%;}
+#right_3{position: absolute;right:19.88%;top: 48.45%;}
+#right_4{position: absolute;right:19.88%;top: 60.85%;}
 /*收藏页*/
 .collection_photo{width: 38.11%;height: 21.37%;border: 0.3em solid #861313;box-shadow:0 5px 10px #444;overflow: hidden;}
 .collection_1{position: absolute;top: 12.22%;left: 8.41%;}

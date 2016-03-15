@@ -2,7 +2,7 @@ angular.module('starter.controllers', [])
 //在这下面添加页面对应的控制器，每个控制器管理对应页面的功能，跳转等等
 
   .controller('startCtrl', function($scope, $state, showMsgService) {
-    showMsgService.showMsg("首页控制器是startCtrl");
+    //showMsgService.showMsg("首页控制器是startCtrl");
     $scope.goFirst = function() {
       $state.go('first');
     }
@@ -20,6 +20,10 @@ angular.module('starter.controllers', [])
             history.back();
         };
     $scope.goMake = function() {
+        count_head = 1;
+        count_body = 1;
+        count_arm = 1;
+        count_leg = 1;
         $state.go('make');
     };
     $scope.goCollection = function() {
@@ -46,6 +50,161 @@ angular.module('starter.controllers', [])
         $scope.goBack = function() {
             history.back();
         };
+        var w =  window.innerWidth;
+        var h =  window.innerHeight;
+        //这里乘的小数是比例
+        $("#make_photo").attr({"width":w*0.8963,"height":h*0.6630});
+        var c=document.getElementById("make_photo");
+        var ctx=c.getContext("2d");
+        var img = new Image();
+        img.src = "img/collection/default.png";
+        ctx.drawImage(img,0,0,w*0.8963,h*0.6630);
+        var head = new Image();
+        head.src = "img/make/head_1.png";
+        ctx.drawImage(head,w*0.35,h*0.05336,w*0.2194,h*0.1453);
+        var leg = new Image();
+        leg.src = "img/make/leg_1.png";
+        ctx.drawImage(leg,w*0.2668,h*0.3668,w*0.4277,h*0.2734);
+        var arm = new Image();
+        arm.src = "img/make/arm_1.png";
+        ctx.drawImage(arm,w*0.278,h*0.1974,w*0.3777,h*0.2094);
+        var body = new Image();
+        body.src = "img/make/body_1.png";
+        ctx.drawImage(body,w*0.33611,h*0.1821,w*0.25,h*0.2703);
+        count_head = 1;
+        count_body = 1;
+        count_arm = 1;
+        count_leg = 1;
+        $("#left_1").click(function(){
+            if(count_head>1){
+                count_head--;
+                //清空画布
+                ctx.clearRect(0,0,w*0.8963,h*0.6630);
+                //画图
+                img.src = "img/collection/default.png";
+                ctx.drawImage(img,0,0,w*0.8963,h*0.6630);
+                head.src = "img/make/head_"+count_head+".png";
+                ctx.drawImage(head,w*0.35,h*0.05336,w*0.2194,h*0.1453);
+                leg.src = "img/make/leg_"+count_leg+".png";
+                ctx.drawImage(leg,w*0.2668,h*0.3668,w*0.4277,h*0.2734);
+                arm.src = "img/make/arm_"+count_arm+".png";
+                ctx.drawImage(arm,w*0.278,h*0.1974,w*0.3777,h*0.2094);
+                body.src = "img/make/body_"+count_body+".png";
+                ctx.drawImage(body,w*0.33611,h*0.1821,w*0.25,h*0.2703);
+            }
+        });
+        $("#right_1").click(function(){
+            if(count_head<9){
+                count_head++;
+                ctx.clearRect(0,0,w*0.8963,h*0.6630);
+                img.src = "img/collection/default.png";
+                    ctx.drawImage(img,0,0,w*0.8963,h*0.6630);
+                head.src = "img/make/head_"+count_head+".png";
+                    ctx.drawImage(head,w*0.35,h*0.05336,w*0.2194,h*0.1453);
+                leg.src = "img/make/leg_"+count_leg+".png";
+                    ctx.drawImage(leg,w*0.2668,h*0.3668,w*0.4277,h*0.2734);
+                arm.src = "img/make/arm_"+count_arm+".png";
+                    ctx.drawImage(arm,w*0.278,h*0.1974,w*0.3777,h*0.2094);
+                body.src = "img/make/body_"+count_body+".png";
+                    ctx.drawImage(body,w*0.33611,h*0.1821,w*0.25,h*0.2703);
+            }
+        });
+        $("#left_2").click(function(){
+            if(count_body>1){
+                count_body--;
+                ctx.clearRect(0,0,w*0.8963,h*0.6630);
+                img.src = "img/collection/default.png";
+                ctx.drawImage(img,0,0,w*0.8963,h*0.6630);
+                head.src = "img/make/head_"+count_head+".png";
+                ctx.drawImage(head,w*0.35,h*0.05336,w*0.2194,h*0.1453);
+                leg.src = "img/make/leg_"+count_leg+".png";
+                ctx.drawImage(leg,w*0.2668,h*0.3668,w*0.4277,h*0.2734);
+                arm.src = "img/make/arm_"+count_arm+".png";
+                ctx.drawImage(arm,w*0.278,h*0.1974,w*0.3777,h*0.2094);
+                body.src = "img/make/body_"+count_body+".png";
+                ctx.drawImage(body,w*0.33611,h*0.1821,w*0.25,h*0.2703);
+            }
+        });
+        $("#right_2").click(function(){
+            if(count_body<9){
+                count_body++;
+                ctx.clearRect(0,0,w*0.8963,h*0.6630);
+                img.src = "img/collection/default.png";
+                ctx.drawImage(img,0,0,w*0.8963,h*0.6630);
+                head.src = "img/make/head_"+count_head+".png";
+                ctx.drawImage(head,w*0.35,h*0.05336,w*0.2194,h*0.1453);
+                leg.src = "img/make/leg_"+count_leg+".png";
+                ctx.drawImage(leg,w*0.2668,h*0.3668,w*0.4277,h*0.2734);
+                arm.src = "img/make/arm_"+count_arm+".png";
+                ctx.drawImage(arm,w*0.278,h*0.1974,w*0.3777,h*0.2094);
+                body.src = "img/make/body_"+count_body+".png";
+                ctx.drawImage(body,w*0.33611,h*0.1821,w*0.25,h*0.2703);
+            }
+        });
+        $("#left_3").click(function(){
+            if(count_arm>1){
+                count_arm--;
+                ctx.clearRect(0,0,w*0.8963,h*0.6630);
+                img.src = "img/collection/default.png";
+                ctx.drawImage(img,0,0,w*0.8963,h*0.6630);
+                head.src = "img/make/head_"+count_head+".png";
+                ctx.drawImage(head,w*0.35,h*0.05336,w*0.2194,h*0.1453);
+                leg.src = "img/make/leg_"+count_leg+".png";
+                ctx.drawImage(leg,w*0.2668,h*0.3668,w*0.4277,h*0.2734);
+                arm.src = "img/make/arm_"+count_arm+".png";
+                ctx.drawImage(arm,w*0.278,h*0.1974,w*0.3777,h*0.2094);
+                body.src = "img/make/body_"+count_body+".png";
+                ctx.drawImage(body,w*0.33611,h*0.1821,w*0.25,h*0.2703);
+            }
+        });
+        $("#right_3").click(function(){
+            if(count_arm<9){
+                count_arm++;
+                ctx.clearRect(0,0,w*0.8963,h*0.6630);
+                img.src = "img/collection/default.png";
+                ctx.drawImage(img,0,0,w*0.8963,h*0.6630);
+                head.src = "img/make/head_"+count_head+".png";
+                ctx.drawImage(head,w*0.35,h*0.05336,w*0.2194,h*0.1453);
+                leg.src = "img/make/leg_"+count_leg+".png";
+                ctx.drawImage(leg,w*0.2668,h*0.3668,w*0.4277,h*0.2734);
+                arm.src = "img/make/arm_"+count_arm+".png";
+                ctx.drawImage(arm,w*0.278,h*0.1974,w*0.3777,h*0.2094);
+                body.src = "img/make/body_"+count_body+".png";
+                ctx.drawImage(body,w*0.33611,h*0.1821,w*0.25,h*0.2703);
+            }
+        });
+        $("#left_4").click(function(){
+            if(count_leg>1){
+                count_leg--;
+                ctx.clearRect(0,0,w*0.8963,h*0.6630);
+                img.src = "img/collection/default.png";
+                ctx.drawImage(img,0,0,w*0.8963,h*0.6630);
+                head.src = "img/make/head_"+count_head+".png";
+                ctx.drawImage(head,w*0.35,h*0.05336,w*0.2194,h*0.1453);
+                leg.src = "img/make/leg_"+count_leg+".png";
+                ctx.drawImage(leg,w*0.2668,h*0.3668,w*0.4277,h*0.2734);
+                arm.src = "img/make/arm_"+count_arm+".png";
+                ctx.drawImage(arm,w*0.278,h*0.1974,w*0.3777,h*0.2094);
+                body.src = "img/make/body_"+count_body+".png";
+                ctx.drawImage(body,w*0.33611,h*0.1821,w*0.25,h*0.2703);
+            }
+        });
+        $("#right_4").click(function(){
+            if(count_leg<9){
+                count_leg++;
+                ctx.clearRect(0,0,w*0.8963,h*0.6630);
+                img.src = "img/collection/default.png";
+                ctx.drawImage(img,0,0,w*0.8963,h*0.6630);
+                head.src = "img/make/head_"+count_head+".png";
+                ctx.drawImage(head,w*0.35,h*0.05336,w*0.2194,h*0.1453);
+                leg.src = "img/make/leg_"+count_leg+".png";
+                ctx.drawImage(leg,w*0.2668,h*0.3668,w*0.4277,h*0.2734);
+                arm.src = "img/make/arm_"+count_arm+".png";
+                ctx.drawImage(arm,w*0.278,h*0.1974,w*0.3777,h*0.2094);
+                body.src = "img/make/body_"+count_body+".png";
+                ctx.drawImage(body,w*0.33611,h*0.1821,w*0.25,h*0.2703);
+            }
+        });
     })
     .controller('collectionCtrl',function($scope ,$state) {
         $scope.goBack = function() {
