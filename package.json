@@ -1,7 +1,7 @@
 {
-  "name": "qi",
+  "name": "shadow-puppet",
   "version": "1.1.1",
-  "description": "Qi: An Ionic project",
+  "description": "Shadow-puppet: An Ionic project",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^2.0.4",
@@ -20,5 +20,7 @@
     "cordova-plugin-whitelist",
     "cordova-plugin-splashscreen"
   ],
-  "cordovaPlatforms": []
+  "cordovaPlatforms": [
+    "android"
+  ]
 }

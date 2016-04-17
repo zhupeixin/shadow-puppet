@@ -46,7 +46,7 @@ angular.module('starter.controllers', [])
             $state.go('biaoyan');
         }
     })
-    .controller('makeCtrl',function($scope ,$state) {
+    .controller('makeCtrl',function($scope ,$state, $rootScope, showMsgService) {
         $scope.goBack = function() {
             history.back();
         };
@@ -205,20 +205,93 @@ angular.module('starter.controllers', [])
                 ctx.drawImage(body,w*0.33611,h*0.1821,w*0.25,h*0.2703);
             }
         });
+
+        $scope.saveImg = function() {
+            var imgStored = JSON.parse(localStorage.imgStored);
+            var canvas = document.getElementById('make_photo');
+            var imgSrc = canvas.toDataURL("image/png");
+            imgStored.push(imgSrc);
+            console.log(imgStored);
+            localStorage.imgStored = JSON.stringify(imgStored);
+            showMsgService.showMsg("已保存到收藏夹");
+        }
     })
-    .controller('collectionCtrl',function($scope ,$state) {
+    .controller('collectionCtrl',function($scope ,$rootScope, $state) {
         $scope.goBack = function() {
             history.back();
         };
         $scope.show_photo = function() {
             $state.go('collection_show');
         };
+        var imgStored = JSON.parse(localStorage.imgStored);
+        var len = imgStored.length;
+        var pages = Math.ceil(len/6);
+        var curPage = 1;
+
+        for(var i=0;i<6;i++) {
+            if(imgStored[i]){
+                $('.collection_'+(i+1)).find('img').attr('src',imgStored[i])
+            }
+        }
+        $scope.goPrePage = function() {
+            if(curPage>1){
+                curPage--;
+                for(var i=0;i<6;i++) {
+                    if(imgStored[i+6*(curPage-1)]){
+                        $('.collection_'+(i+1)).find('img').attr('src',imgStored[i+6*(curPage-1)])
+                    }
+                }
+            }
+            pages = Math.ceil(len/6);
+        };
+        $scope.goAftPage = function() {
+            if(curPage<pages){
+                curPage++;
+                for(var i=0;i<6;i++) {
+                    if(imgStored[i+6*(curPage-1)]){
+                        $('.collection_'+(i+1)).find('img').attr('src',imgStored[i+6*(curPage-1)])
+                    }else{
+                        $('.collection_'+(i+1)).find('img').attr('src',"img/collection/default.png")
+                    }
+                }
+            }
+            pages = Math.ceil(len/6);
+        };
+        $scope.show_photo = function(n) {
+            if(imgStored[n+9*(curPage-1)]){
+                $rootScope.imgSrc = imgStored[n+9*(curPage-1)];
+                $state.go('collection_show');
+            }
+        }
     })
-    .controller('collection_showCtrl',function($scope ,$state) {
+    .controller('collection_showCtrl',function($scope ,$rootScope, $state, showMsgService) {
         $scope.goBack = function() {
             history.back();
         };
-
+        var canvasDiv = $('.collection_show');
+        var canvas = document.createElement('canvas');  //准备空画布
+        canvas.width = canvasDiv.width();
+        canvas.height = canvasDiv.height();
+        canvas.id = "myCanvas";
+        var image = new Image();
+        image.width = canvas.width;
+        image.height = canvas.height;
+        image.src = $rootScope.imgSrc;
+        canvas.getContext("2d").drawImage(image, 0, 0);
+        var element = document.getElementById("collection_show");
+        element.appendChild(canvas);
+        $scope.saveCanvas = function() {
+            window.canvas2ImagePlugin.saveImageDataToLibrary(
+                function(msg){
+                    console.log(msg);
+                },
+                function(err){
+                    console.log(err);
+                },
+                document.getElementById('myCanvas')
+            );
+            showMsgService.showMsg("图片已保存到手机相册");
+        }
     })
     .controller('styleCtrl',function($scope ,$state) {
         $scope.goBack = function() {
@@ -422,31 +495,29 @@ angular.module('starter.controllers', [])
 
 
     })
-    .controller('collection_showCtrl',function($scope ,$state) {
+    .controller('biaoyan_01Ctrl',function($scope ,$state, $sce) {
         $scope.goBack = function() {
             history.back();
         };
-
+        $scope.mySrc = $sce.trustAsResourceUrl("http://player.youku.com/embed/XMTUwMTE2ODQxNg==");
     })
-    .controller('biaoyan_01Ctrl',function($scope ,$state) {
+    .controller('biaoyan_02Ctrl',function($scope ,$state, $sce) {
         $scope.goBack = function() {
             history.back();
         };
+        $scope.mySrc = $sce.trustAsResourceUrl("http://player.youku.com/embed/XMTQ5NzU2NzYwOA==");
     })
-    .controller('biaoyan_02Ctrl',function($scope ,$state) {
+    .controller('biaoyan_03Ctrl',function($scope ,$state, $sce) {
         $scope.goBack = function() {
             history.back();
         };
+        $scope.mySrc = $sce.trustAsResourceUrl("http://player.youku.com/embed/XMTQ5NzU2NzU4NA==");
     })
-    .controller('biaoyan_03Ctrl',function($scope ,$state) {
+    .controller('biaoyan_04Ctrl',function($scope ,$state, $sce) {
         $scope.goBack = function() {
             history.back();
         };
-    })
-    .controller('biaoyan_04Ctrl',function($scope ,$state) {
-        $scope.goBack = function() {
-            history.back();
-        };
+        $scope.mySrc = $sce.trustAsResourceUrl("http://player.youku.com/embed/XMTQ5NzU2NzU4OA==");
     })
 
     //删除

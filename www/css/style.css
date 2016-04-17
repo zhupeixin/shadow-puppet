@@ -50,7 +50,7 @@
 .collection_5{position: absolute;top: 62.54%;left: 8.41%;}
 .collection_6{position: absolute;top: 62.54%;right:7.41%;}
 /*收藏页大图*/
-.collection_show{width: 89.63%;height: 66.30%;position: absolute;top: 13.65%;left: 5.3%;border: 0.3em solid #861313;box-shadow:0 5px 10px #444;background: url("../img/collection/1.png");background-size: 100% 100%;}
+.collection_show{width: 89.63%;height: 66.30%;position: absolute;top: 13.65%;left: 5.3%;border: 0.3em solid #861313;box-shadow:0 5px 10px #444;}
 /*赏析页面*/
 .shangxi{background: url("../img/shangxi/default.png");background-size: 100% 100%;}
 .shangxi_show{width: 89.63%;height: 66.30%;position: absolute;top: 13.65%;left: 5.3%;border: 0.3em solid #861313;box-shadow:0 5px 10px #444;background: url("../img/shangxi/default.png");background-size: 100% 100%;}
