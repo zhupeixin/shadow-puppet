@@ -56,25 +56,33 @@ angular.module('starter.controllers', [])
         $("#make_photo").attr({"width":w*0.8963,"height":h*0.6630});
         var c=document.getElementById("make_photo");
         var ctx=c.getContext("2d");
-        var img = new Image();
-        img.src = "img/collection/default.png";
-        ctx.drawImage(img,0,0,w*0.8963,h*0.6630);
-        var head = new Image();
-        head.src = "img/make/head_1.png";
-        ctx.drawImage(head,w*0.35,h*0.05336,w*0.2194,h*0.1453);
-        var leg = new Image();
-        leg.src = "img/make/leg_1.png";
-        ctx.drawImage(leg,w*0.2668,h*0.3668,w*0.4277,h*0.2734);
-        var arm = new Image();
-        arm.src = "img/make/arm_1.png";
-        ctx.drawImage(arm,w*0.278,h*0.1974,w*0.3777,h*0.2094);
-        var body = new Image();
-        body.src = "img/make/body_1.png";
-        ctx.drawImage(body,w*0.33611,h*0.1821,w*0.25,h*0.2703);
         count_head = 1;
         count_body = 1;
         count_arm = 1;
         count_leg = 1;
+        var head = new Array();
+        var leg = new Array();
+        var arm = new Array();
+        var body = new Array();
+        for(var i=1;i<=9;i++){
+            head[i] = new Image();
+            leg[i] = new Image();
+            arm[i] = new Image();
+            body[i] = new Image();
+            ctx.clearRect(0,0,w*0.8963,h*0.6630);
+            //画图
+            head[i].src = "img/make/head_"+i+".png";
+            leg[i].src = "img/make/leg_"+i+".png";
+            arm[i].src = "img/make/arm_"+i+".png";
+            body[i].src = "img/make/body_"+i+".png";
+        }
+        var img = new Image();
+        img.src = "img/collection/default.png";
+        ctx.drawImage(img,0,0,w*0.8963,h*0.6630);
+        ctx.drawImage(head[1],w*0.35,h*0.05336,w*0.2194,h*0.1453);
+        ctx.drawImage(leg[1],w*0.2668,h*0.3668,w*0.4277,h*0.2734);
+        ctx.drawImage(arm[1],w*0.278,h*0.1974,w*0.3777,h*0.2094);
+        ctx.drawImage(body[1],w*0.33611,h*0.1821,w*0.25,h*0.2703);
         $("#left_1").click(function(){
             if(count_head>1){
                 count_head--;
@@ -83,14 +91,14 @@ angular.module('starter.controllers', [])
                 //画图
                 img.src = "img/collection/default.png";
                 ctx.drawImage(img,0,0,w*0.8963,h*0.6630);
-                head.src = "img/make/head_"+count_head+".png";
-                ctx.drawImage(head,w*0.35,h*0.05336,w*0.2194,h*0.1453);
-                leg.src = "img/make/leg_"+count_leg+".png";
-                ctx.drawImage(leg,w*0.2668,h*0.3668,w*0.4277,h*0.2734);
-                arm.src = "img/make/arm_"+count_arm+".png";
-                ctx.drawImage(arm,w*0.278,h*0.1974,w*0.3777,h*0.2094);
-                body.src = "img/make/body_"+count_body+".png";
-                ctx.drawImage(body,w*0.33611,h*0.1821,w*0.25,h*0.2703);
+                head[count_head].src = "img/make/head_"+count_head+".png";
+                ctx.drawImage(head[count_head],w*0.35,h*0.05336,w*0.2194,h*0.1453);
+                leg[count_leg].src = "img/make/leg_"+count_leg+".png";
+                ctx.drawImage(leg[count_leg],w*0.2668,h*0.3668,w*0.4277,h*0.2734);
+                arm[count_arm].src = "img/make/arm_"+count_arm+".png";
+                ctx.drawImage(arm[count_arm],w*0.278,h*0.1974,w*0.3777,h*0.2094);
+                body[count_body].src = "img/make/body_"+count_body+".png";
+                ctx.drawImage(body[count_body],w*0.33611,h*0.1821,w*0.25,h*0.2703);
             }
         });
         $("#right_1").click(function(){
@@ -99,14 +107,14 @@ angular.module('starter.controllers', [])
                 ctx.clearRect(0,0,w*0.8963,h*0.6630);
                 img.src = "img/collection/default.png";
                     ctx.drawImage(img,0,0,w*0.8963,h*0.6630);
-                head.src = "img/make/head_"+count_head+".png";
-                    ctx.drawImage(head,w*0.35,h*0.05336,w*0.2194,h*0.1453);
-                leg.src = "img/make/leg_"+count_leg+".png";
-                    ctx.drawImage(leg,w*0.2668,h*0.3668,w*0.4277,h*0.2734);
-                arm.src = "img/make/arm_"+count_arm+".png";
-                    ctx.drawImage(arm,w*0.278,h*0.1974,w*0.3777,h*0.2094);
-                body.src = "img/make/body_"+count_body+".png";
-                    ctx.drawImage(body,w*0.33611,h*0.1821,w*0.25,h*0.2703);
+                head[count_head].src = "img/make/head_"+count_head+".png";
+                    ctx.drawImage(head[count_head],w*0.35,h*0.05336,w*0.2194,h*0.1453);
+                leg[count_leg].src = "img/make/leg_"+count_leg+".png";
+                    ctx.drawImage(leg[count_leg],w*0.2668,h*0.3668,w*0.4277,h*0.2734);
+                arm[count_arm].src = "img/make/arm_"+count_arm+".png";
+                    ctx.drawImage(arm[count_arm],w*0.278,h*0.1974,w*0.3777,h*0.2094);
+                body[count_body].src = "img/make/body_"+count_body+".png";
+                    ctx.drawImage(body[count_body],w*0.33611,h*0.1821,w*0.25,h*0.2703);
             }
         });
         $("#left_2").click(function(){
@@ -115,14 +123,14 @@ angular.module('starter.controllers', [])
                 ctx.clearRect(0,0,w*0.8963,h*0.6630);
                 img.src = "img/collection/default.png";
                 ctx.drawImage(img,0,0,w*0.8963,h*0.6630);
-                head.src = "img/make/head_"+count_head+".png";
-                ctx.drawImage(head,w*0.35,h*0.05336,w*0.2194,h*0.1453);
-                leg.src = "img/make/leg_"+count_leg+".png";
-                ctx.drawImage(leg,w*0.2668,h*0.3668,w*0.4277,h*0.2734);
-                arm.src = "img/make/arm_"+count_arm+".png";
-                ctx.drawImage(arm,w*0.278,h*0.1974,w*0.3777,h*0.2094);
-                body.src = "img/make/body_"+count_body+".png";
-                ctx.drawImage(body,w*0.33611,h*0.1821,w*0.25,h*0.2703);
+                head[count_head].src = "img/make/head_"+count_head+".png";
+                ctx.drawImage(head[count_head],w*0.35,h*0.05336,w*0.2194,h*0.1453);
+                leg[count_leg].src = "img/make/leg_"+count_leg+".png";
+                ctx.drawImage(leg[count_leg],w*0.2668,h*0.3668,w*0.4277,h*0.2734);
+                arm[count_arm].src = "img/make/arm_"+count_arm+".png";
+                ctx.drawImage(arm[count_arm],w*0.278,h*0.1974,w*0.3777,h*0.2094);
+                body[count_body].src = "img/make/body_"+count_body+".png";
+                ctx.drawImage(body[count_body],w*0.33611,h*0.1821,w*0.25,h*0.2703);
             }
         });
         $("#right_2").click(function(){
@@ -131,14 +139,14 @@ angular.module('starter.controllers', [])
                 ctx.clearRect(0,0,w*0.8963,h*0.6630);
                 img.src = "img/collection/default.png";
                 ctx.drawImage(img,0,0,w*0.8963,h*0.6630);
-                head.src = "img/make/head_"+count_head+".png";
-                ctx.drawImage(head,w*0.35,h*0.05336,w*0.2194,h*0.1453);
-                leg.src = "img/make/leg_"+count_leg+".png";
-                ctx.drawImage(leg,w*0.2668,h*0.3668,w*0.4277,h*0.2734);
-                arm.src = "img/make/arm_"+count_arm+".png";
-                ctx.drawImage(arm,w*0.278,h*0.1974,w*0.3777,h*0.2094);
-                body.src = "img/make/body_"+count_body+".png";
-                ctx.drawImage(body,w*0.33611,h*0.1821,w*0.25,h*0.2703);
+                head[count_head].src = "img/make/head_"+count_head+".png";
+                ctx.drawImage(head[count_head],w*0.35,h*0.05336,w*0.2194,h*0.1453);
+                leg[count_leg].src = "img/make/leg_"+count_leg+".png";
+                ctx.drawImage(leg[count_leg],w*0.2668,h*0.3668,w*0.4277,h*0.2734);
+                arm[count_arm].src = "img/make/arm_"+count_arm+".png";
+                ctx.drawImage(arm[count_arm],w*0.278,h*0.1974,w*0.3777,h*0.2094);
+                body[count_body].src = "img/make/body_"+count_body+".png";
+                ctx.drawImage(body[count_body],w*0.33611,h*0.1821,w*0.25,h*0.2703);
             }
         });
         $("#left_3").click(function(){
@@ -147,14 +155,14 @@ angular.module('starter.controllers', [])
                 ctx.clearRect(0,0,w*0.8963,h*0.6630);
                 img.src = "img/collection/default.png";
                 ctx.drawImage(img,0,0,w*0.8963,h*0.6630);
-                head.src = "img/make/head_"+count_head+".png";
-                ctx.drawImage(head,w*0.35,h*0.05336,w*0.2194,h*0.1453);
-                leg.src = "img/make/leg_"+count_leg+".png";
-                ctx.drawImage(leg,w*0.2668,h*0.3668,w*0.4277,h*0.2734);
-                arm.src = "img/make/arm_"+count_arm+".png";
-                ctx.drawImage(arm,w*0.278,h*0.1974,w*0.3777,h*0.2094);
-                body.src = "img/make/body_"+count_body+".png";
-                ctx.drawImage(body,w*0.33611,h*0.1821,w*0.25,h*0.2703);
+                head[count_head].src = "img/make/head_"+count_head+".png";
+                ctx.drawImage(head[count_head],w*0.35,h*0.05336,w*0.2194,h*0.1453);
+                leg[count_leg].src = "img/make/leg_"+count_leg+".png";
+                ctx.drawImage(leg[count_leg],w*0.2668,h*0.3668,w*0.4277,h*0.2734);
+                arm[count_arm].src = "img/make/arm_"+count_arm+".png";
+                ctx.drawImage(arm[count_arm],w*0.278,h*0.1974,w*0.3777,h*0.2094);
+                body[count_body].src = "img/make/body_"+count_body+".png";
+                ctx.drawImage(body[count_body],w*0.33611,h*0.1821,w*0.25,h*0.2703);
             }
         });
         $("#right_3").click(function(){
@@ -163,14 +171,14 @@ angular.module('starter.controllers', [])
                 ctx.clearRect(0,0,w*0.8963,h*0.6630);
                 img.src = "img/collection/default.png";
                 ctx.drawImage(img,0,0,w*0.8963,h*0.6630);
-                head.src = "img/make/head_"+count_head+".png";
-                ctx.drawImage(head,w*0.35,h*0.05336,w*0.2194,h*0.1453);
-                leg.src = "img/make/leg_"+count_leg+".png";
-                ctx.drawImage(leg,w*0.2668,h*0.3668,w*0.4277,h*0.2734);
-                arm.src = "img/make/arm_"+count_arm+".png";
-                ctx.drawImage(arm,w*0.278,h*0.1974,w*0.3777,h*0.2094);
-                body.src = "img/make/body_"+count_body+".png";
-                ctx.drawImage(body,w*0.33611,h*0.1821,w*0.25,h*0.2703);
+                head[count_head].src = "img/make/head_"+count_head+".png";
+                ctx.drawImage(head[count_head],w*0.35,h*0.05336,w*0.2194,h*0.1453);
+                leg[count_leg].src = "img/make/leg_"+count_leg+".png";
+                ctx.drawImage(leg[count_leg],w*0.2668,h*0.3668,w*0.4277,h*0.2734);
+                arm[count_arm].src = "img/make/arm_"+count_arm+".png";
+                ctx.drawImage(arm[count_arm],w*0.278,h*0.1974,w*0.3777,h*0.2094);
+                body[count_body].src = "img/make/body_"+count_body+".png";
+                ctx.drawImage(body[count_body],w*0.33611,h*0.1821,w*0.25,h*0.2703);
             }
         });
         $("#left_4").click(function(){
@@ -179,14 +187,14 @@ angular.module('starter.controllers', [])
                 ctx.clearRect(0,0,w*0.8963,h*0.6630);
                 img.src = "img/collection/default.png";
                 ctx.drawImage(img,0,0,w*0.8963,h*0.6630);
-                head.src = "img/make/head_"+count_head+".png";
-                ctx.drawImage(head,w*0.35,h*0.05336,w*0.2194,h*0.1453);
-                leg.src = "img/make/leg_"+count_leg+".png";
-                ctx.drawImage(leg,w*0.2668,h*0.3668,w*0.4277,h*0.2734);
-                arm.src = "img/make/arm_"+count_arm+".png";
-                ctx.drawImage(arm,w*0.278,h*0.1974,w*0.3777,h*0.2094);
-                body.src = "img/make/body_"+count_body+".png";
-                ctx.drawImage(body,w*0.33611,h*0.1821,w*0.25,h*0.2703);
+                head[count_head].src = "img/make/head_"+count_head+".png";
+                ctx.drawImage(head[count_head],w*0.35,h*0.05336,w*0.2194,h*0.1453);
+                leg[count_leg].src = "img/make/leg_"+count_leg+".png";
+                ctx.drawImage(leg[count_leg],w*0.2668,h*0.3668,w*0.4277,h*0.2734);
+                arm[count_arm].src = "img/make/arm_"+count_arm+".png";
+                ctx.drawImage(arm[count_arm],w*0.278,h*0.1974,w*0.3777,h*0.2094);
+                body[count_body].src = "img/make/body_"+count_body+".png";
+                ctx.drawImage(body[count_body],w*0.33611,h*0.1821,w*0.25,h*0.2703);
             }
         });
         $("#right_4").click(function(){
@@ -195,14 +203,14 @@ angular.module('starter.controllers', [])
                 ctx.clearRect(0,0,w*0.8963,h*0.6630);
                 img.src = "img/collection/default.png";
                 ctx.drawImage(img,0,0,w*0.8963,h*0.6630);
-                head.src = "img/make/head_"+count_head+".png";
-                ctx.drawImage(head,w*0.35,h*0.05336,w*0.2194,h*0.1453);
-                leg.src = "img/make/leg_"+count_leg+".png";
-                ctx.drawImage(leg,w*0.2668,h*0.3668,w*0.4277,h*0.2734);
-                arm.src = "img/make/arm_"+count_arm+".png";
-                ctx.drawImage(arm,w*0.278,h*0.1974,w*0.3777,h*0.2094);
-                body.src = "img/make/body_"+count_body+".png";
-                ctx.drawImage(body,w*0.33611,h*0.1821,w*0.25,h*0.2703);
+                head[count_head].src = "img/make/head_"+count_head+".png";
+                ctx.drawImage(head[count_head],w*0.35,h*0.05336,w*0.2194,h*0.1453);
+                leg[count_leg].src = "img/make/leg_"+count_leg+".png";
+                ctx.drawImage(leg[count_leg],w*0.2668,h*0.3668,w*0.4277,h*0.2734);
+                arm[count_arm].src = "img/make/arm_"+count_arm+".png";
+                ctx.drawImage(arm[count_arm],w*0.278,h*0.1974,w*0.3777,h*0.2094);
+                body[count_body].src = "img/make/body_"+count_body+".png";
+                ctx.drawImage(body[count_body],w*0.33611,h*0.1821,w*0.25,h*0.2703);
             }
         });
 
